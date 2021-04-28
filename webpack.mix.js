@@ -12,6 +12,9 @@ const $AdminPubAs = 'public/adminn';
  | file for the application as well as bundling up all the JS files.
  |
  */
+mix.copy('resources/assets/adminn/images','public/adminn/img');
+mix.copy('resources/assets/adminn/vendors/bootstrap-icons/bootstrap-icons.svg','public/adminn/vendors');
+
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
@@ -27,11 +30,11 @@ mix.js('resources/js/app.js', 'public/js')
     $AdminResAs+'/js/main.js',
 ], $AdminPubAs+'/js/maze-admin.js')
 
+
 .styles([
     $AdminResAs+'/css/bootstrap.css',
-    $AdminResAs+'/vendors/iconly/bold.css',
+    $AdminResAs+'/vendors/bootstrap-icons/bootstrap-icons.svg',
     $AdminResAs+'/vendors/perfect-scrollbar/perfect-scrollbar.css',
-    $AdminResAs+'/vendors/bootstrap-icons/bootstrap-icons.css',
     $AdminResAs+'/css/app.css',
 ], $AdminPubAs+'/css/maze-admin.css')
 
