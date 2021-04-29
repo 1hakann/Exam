@@ -13,7 +13,7 @@ const $AdminPubAs = 'public/adminn';
  |
  */
 mix.copy('resources/assets/adminn/images','public/adminn/img');
-mix.copy('resources/assets/adminn/vendors/bootstrap-icons/bootstrap-icons.svg','public/adminn/vendors');
+mix.copy('resources/assets/adminn/vendors/bootstrap-icons/bootstrap-icons.svg','public/adminn/vendors/bootstrap-icons/bootstrap-icons.svg');
 
 
 mix.js('resources/js/app.js', 'public/js')
@@ -33,7 +33,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 .styles([
     $AdminResAs+'/css/bootstrap.css',
-    $AdminResAs+'/vendors/bootstrap-icons/bootstrap-icons.svg',
     $AdminResAs+'/vendors/perfect-scrollbar/perfect-scrollbar.css',
     $AdminResAs+'/css/app.css',
 ], $AdminPubAs+'/css/maze-admin.css')
