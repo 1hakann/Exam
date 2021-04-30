@@ -20,3 +20,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('/', 'Admin\AdminController');
+Route::resource('/quiz','Admin\QuizController');

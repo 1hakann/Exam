@@ -15,7 +15,7 @@
                 <li class="sidebar-title">Menu</li>
 
                 <li class="sidebar-item active ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="{{url('/')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -24,14 +24,14 @@
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
-                        <span>Components</span>
+                        <span>Quiz</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Alert</a>
+                            <a href="{{url('quiz')}}">Quiz Listesi</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-badge.html">Badge</a>
+                            <a href="{{url('quiz/create')}}">Quiz Ekle</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="component-breadcrumb.html">Breadcrumb</a>
