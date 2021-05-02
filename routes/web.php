@@ -21,3 +21,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('/', 'Admin\AdminController');
 Route::resource('/quiz','Admin\QuizController');
+Route::resource('/question','Admin\QuestionController');
+

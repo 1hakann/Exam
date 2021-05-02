@@ -12,6 +12,7 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = ['question','quiz_id'];
+    protected $limit = 10;
 
     public function answers()
     {
@@ -21,4 +22,12 @@ class Question extends Model
     public function quiz() {
         return $this->belongsTo(Quiz::class); 
     }
+
+    public function storeQuestion($data)
+    {
+        $data['quiz_id'] = $data['quiz'];
+        return Question::create($data);
+    }
+
+
 }
