@@ -18,7 +18,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = (new Question)->getQuestions();
+        return view('admin.question.index',compact('questions'));
     }
 
     /**
@@ -54,7 +55,8 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        $question = (new Question)->getQuestionById($id);
+        return view('admin.question.show',compact('question'));
     }
 
     /**
@@ -65,7 +67,8 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = (new Question)->findQuestion($id);
+        return view('admin.question.edit',compact('question'));
     }
 
     /**
@@ -77,7 +80,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request;
     }
 
     /**

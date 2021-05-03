@@ -43,7 +43,7 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="extra-component-avatar.html">Soru Listesi</a>
+                            <a href="{{route('question.index')}}">Soru Listesi</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="{{route('question.create')}}">Soru Ekle</a>
