@@ -63,9 +63,9 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                                                      <a href="{{route('quiz.destroy',$question->id)}}"><button class="btn btn-warning" title="Sil">Sil</button>
+                                                      <a href="{{route('question.destroy',$question->id)}}"><button class="btn btn-warning" title="Sil">Sil</button>
                                                     </div>
-                                        </form>
+                                                    </form>
 
                                                   </div>
                                                 </div>

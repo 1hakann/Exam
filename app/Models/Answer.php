@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\question;
+use App\Models\Answer;
 
 class Answer extends Model
 {
@@ -24,7 +25,7 @@ class Answer extends Model
             $is_correct = false;
             if($key == $data['correct_answer'])
             {
-                $is_correct == true;
+                $is_correct = true;
             }
             $answer = Answer::create([
                 'question_id' => $question->id,
@@ -32,6 +33,17 @@ class Answer extends Model
                 'is_correct' => $is_correct
             ]);
         }
+    }
+
+    public function updateAnswer($data,$question)
+    {
+        $this->deleteAnswer($question->id);
+        $this->storeAnswer($data,$question);
+    }
+
+    public function deleteAnswer($questionId)
+    {
+        Answer::where('question_id',$questionId)->delete();
     }
 
 

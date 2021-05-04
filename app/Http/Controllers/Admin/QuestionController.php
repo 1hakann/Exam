@@ -80,7 +80,10 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
+        $data = $this->validateForm($request);
+        $question = (new Question)->updateQuestion($id,$request);
+        $answer = (new Answer)->updateAnswer($request,$question);
+        return redirect()->route('question.show',$id)->with('message','Soru Başarıyla Güncelleştirildi');
     }
 
     /**
@@ -91,7 +94,9 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        (new Answer)->deleteAnswer($id);
+        (new Question)->deleteQuestion($id);
+        return redirect()->route('question.index')->with('message','Soru Başarıyla Silindi');
     }
 
     public function validateForm($request)
@@ -99,7 +104,7 @@ class QuestionController extends Controller
         return $this->validate($request, [
             'quiz' => 'required',
             'question' => 'required|min:3',
-            'options' => 'bail|required|array|:min3',
+            'options' => 'bail|required|array|',
             'options.*' => 'bail|required|string|distinct',
             'correct_answer' => 'required'
         ]);
