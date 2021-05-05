@@ -30,7 +30,7 @@
                                         {{$key+1}}.
                                         {{$answer->answer}}
                                         @if ($answer->is_correct)
-                                        <span class="badge badge-success"><b>Correct</b></span>
+                                        <b class="text-success">Correct</b>
                                         @endif
                                     </td>
                                 </tr>
@@ -38,44 +38,37 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="{{route('question.edit',$question->id)}}"><button class="btn btn-success">Düzenle</button></a>
+                    <a href="{{route('question.edit',$question->id)}}"><button class="btn btn-success" style="float: left">Düzenle</button></a>
+                    <a href="#"><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$question->id}}">Sil</button></a>
+
+                    <div class="modal fade" id="exampleModal{{$question->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Quiz Silme Alanı</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+
                     <form action="{{route('question.destroy',$question->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                    <div class="module-foot">
-                        
-                        <a href=""><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$question->id}}">Sil</button></a>
-
-                        <div class="modal fade" id="exampleModal{{$question->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Soru Silme Alanı</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                               
-                                <div class="modal-body">
-                                  Silmek istediğine emin misin?
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                                  <a href=""><button class="btn btn-warning" title="Sil">Sil</button>
-                                </div>
-                                
-
-                              </div>
-                         
-                            </div>
-                          </div>
-                          <a href="{{route('question.index')}}"><button class="btn btn-dark" style="float: right">Geri Dön</button></a>
+                    <div class="modal-body">
+                      Silmek istediğine emin misin?
                     </div>
-                </form>
-                </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                      <a href="{{route('quiz.destroy',$question->id)}}"><button class="btn btn-warning" title="Sil">Sil</button>
+                    </div>
+                     </form>
               
+                </div>
             </div>
+
         </div>
+        <a href="{{route('question.index')}}"><button class="btn btn-dark" style="float: right">Geri Dön</button></a>
+
     </div>
 </section>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

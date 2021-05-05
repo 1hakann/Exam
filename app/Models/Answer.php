@@ -46,5 +46,4 @@ class Answer extends Model
         Answer::where('question_id',$questionId)->delete();
     }
 
-
 }

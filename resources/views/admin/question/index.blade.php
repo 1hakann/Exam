@@ -39,37 +39,37 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$question->question}}</td>
-                                    <td>{{$question->quiz->name}}</td>
+                                    <td>{{!empty($question->quiz->name) ? $question->quiz->name:''}}</td>
                                     <td>{{date('F d, Y', strtotime($question->created_at))}}</td>
                                     <td><a href="{{route('question.edit',$question->id)}}"><button style="float: left; margin-right:10px" class="btn btn-success">Düzenle</button></a>
                                         <a href="{{route('question.show',$question->id)}}"><button style="float: left; margin-right:10px" class="btn btn-primary">Göster</button></a>
                                       
-                                            <a href="#"><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$question->id}}">Sil</button></a>
+                                        <a href="#"><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$question->id}}">Sil</button></a>
 
-                                            <div class="modal fade" id="exampleModal{{$question->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                  <div class="modal-content">
-                                                    <div class="modal-header">
-                                                      <h5 class="modal-title" id="exampleModalLabel">Soru Silme Alanı</h5>
-                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                      </button>
-                                                    </div>
-                                                    <form action="{{route('question.destroy',$question->id)}}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                    <div class="modal-body">
-                                                      Silmek istediğine emin misin?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                                                      <a href="{{route('question.destroy',$question->id)}}"><button class="btn btn-warning" title="Sil">Sil</button>
-                                                    </div>
-                                                    </form>
+                                        <div class="modal fade" id="exampleModal{{$question->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                           <div class="modal-dialog" role="document">
+                                             <div class="modal-content">
+                                               <div class="modal-header">
+                                                 <h5 class="modal-title" id="exampleModalLabel">Quiz Silme Alanı</h5>
+                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                   <span aria-hidden="true">&times;</span>
+                                                 </button>
+                                               </div>
+                                               <form action="{{route('quiz.destroy',$question->id)}}" method="POST">
+                                                   @csrf
+                                                   @method('DELETE')
+                                               <div class="modal-body">
+                                                 Silmek istediğine emin misin?
+                                               </div>
+                                               <div class="modal-footer">
+                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                                 <a href="{{route('quiz.destroy',$question->id)}}"><button class="btn btn-warning" title="Sil">Sil</button>
+                                               </div>
+                                                </form>
 
-                                                  </div>
-                                                </div>
-                                              </div>
+                                             </div>
+                                           </div>
+                                       </div>
                                     </td>
                                 </tr>
                                 @endforeach

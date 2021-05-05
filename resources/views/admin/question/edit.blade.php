@@ -51,7 +51,7 @@
                         <div class="controls col-md-6">
                             @foreach($question->answers as $key=>$answer)
                             <input type="text" name="options[]" class="form-control @error('options') is-invalid @enderror" placeholder="Seçenek" value="{{$answer->answer}}" required id="basicInput">
-                            <input type="radio" name="correct_answer" value="{{$key}} @if($answer->is_correct){{'checked'}} @endif"><span>Doğru Cevap mı?</span>
+                            <input type="radio" name="correct_answer" value="{{$key}}" @if($answer->is_correct) {{'checked'}} @endif><span>Doğru Cevap mı?</span>
                             @endforeach
                             
                         </div>
@@ -63,7 +63,7 @@
 
 
                     <div class="form-group">
-                        <input class="btn btn-success mt-3" type="submit" value="Soru Oluştur" class="form-control">
+                        <input class="btn btn-success mt-3" type="submit" value="Soru Güncelle" class="form-control">
                     </div>
                 </div>
                 

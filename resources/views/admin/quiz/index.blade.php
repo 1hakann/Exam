@@ -45,7 +45,7 @@
                                       
                                             <a href="#"><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$quiz->id}}">Sil</button></a>
 
-                                            <div class="modal fade" id="exampleModal{{$quiz->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                             <div class="modal fade" id="exampleModal{{$quiz->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                   <div class="modal-content">
                                                     <div class="modal-header">
@@ -64,11 +64,11 @@
                                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
                                                       <a href="{{route('quiz.destroy',$quiz->id)}}"><button class="btn btn-warning" title="Sil">Sil</button>
                                                     </div>
-                                        </form>
+                                                     </form>
 
                                                   </div>
                                                 </div>
-                                              </div>
+                                            </div>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Soru Oluştur
-            <a href="{{route('quiz.index')}}"><button style="float: right;" class="btn btn-primary">Soru Listesine Dön</button></a></h4>
+            <a href="{{route('question.index')}}"><button style="float: right;" class="btn btn-primary">Soru Listesine Dön</button></a></h4>
         </div>
 
         <div class="card-body">
