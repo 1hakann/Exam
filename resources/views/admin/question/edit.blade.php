@@ -14,7 +14,7 @@
             <div class="mb-4 font-medium text-sm text-green-600">
                 <div class="alert alert-success" role="alert">{{ Session('message') }}</div>
             </div>
-        @endif
+             @endif
 
 
             <form action="{{route('question.update',$question->id)}}" method="POST">
