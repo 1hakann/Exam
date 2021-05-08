@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\User;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,8 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+    private $limit = 10;
 
     /**
      * The attributes that are mass assignable.
@@ -63,4 +66,45 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function storeUser($data)
+    {
+        $data['visible_password'] = $data['password'];
+        $data['password'] = bcrypt($data['password']);
+        $data['is_admin'] = 0;
+        return User::create($data);
+    }
+
+    public function allUsers()
+    {
+        return User::latest()->paginate($this->limit);
+    }
+
+    public function findUser($id)
+    {
+        return User::find($id);
+    }
+
+    public function updateUser($data, $id)
+    {
+        $user = User::find($id);
+        if($data['password']) {
+            $user->password = bcrypt($data['password']);
+            $user->visible_password = $data['password'];
+        }
+
+        $user->name = $data['name'];
+        $user->occupation = $data['occupation'];
+        $user->phone = $data['phone'];
+        $user->address = $data['address'];
+
+        $user->save();
+        return $user;
+    }
+
+    public function deleteUser($id)
+    {
+        return User::find($id)->delete();
+    }
+
 }

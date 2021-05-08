@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
+        $users = (new User)->allUsers();
+        return view('admin.user.index',compact('users'));
     }
 
     /**
@@ -35,7 +37,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6'
+        ]);
+
+        $user = (new User)->storeUser($request->all());
+        return redirect()->back()->with('message','Kullanıcı Başarıyla Oluşturuldu');
     }
 
     /**
@@ -57,7 +66,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = (new User)->findUser($id);
+        return view('admin.user.edit',compact('user'));
     }
 
     /**
@@ -69,7 +79,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        $user = (new User)->updateUser($request->all(), $id);
+        return redirect()->route('user.index')->with('message','Kullanıcı Başarıyla Güncelleştirildi');
     }
 
     /**
@@ -80,6 +95,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+       /* if(auth()->user()->id == $id) {
+            return redirect()->back('message','Admin hesabı! Silinemez.');
+        }*/
+        $user = (new User)->deleteUser($id);
+        return redirect()->route('user.index')->with('message','Kullanıcı Başarıyla Silindi');
     }
 }

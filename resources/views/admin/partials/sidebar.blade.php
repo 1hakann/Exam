@@ -58,7 +58,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item ">
-                            <a href="layout-vertical-1-column.html">1 Column</a>
+                            <a href="{{route('user.index')}}">Kullanıcı Listesi</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="{{route('user.create')}}">Kullanıcı Ekle</a>

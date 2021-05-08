@@ -10,9 +10,9 @@
             <div class="alert alert-success" role="alert">{{ Session('message') }}</div>
         </div>
          @endif
-        <form class="form form-vertical" action="{{route('user.store')}}" method="POST">
+        <form class="form form-vertical" action="{{route('user.update', $user->id)}}" method="POST">
             @csrf
-            @method('post')
+            @method('PUT')
             <div class="form-body">
                 <div class="row">
                     <div class="col-12">
@@ -20,7 +20,7 @@
                             <label for="first-name-icon">First Name</label>
                             <div class="position-relative">
                                 <input type="text" class="form-control"
-                                    placeholder="User Name" name="name" value="{{old('name')}}"
+                                    placeholder="User Name" name="name" value="{{$user->name}}"
                                     id="first-name-icon" @error('name') is-invalid @enderror>
                                 <div class="form-control-icon">
                                     <i class="bi bi-person"></i>
@@ -36,7 +36,7 @@
                         <div class="form-group has-icon-left">
                             <label for="email-id-icon">Email</label>
                             <div class="position-relative">
-                                <input type="text" class="form-control" name="email" value="{{old('email')}}"
+                                <input type="text" class="form-control" name="email" value="{{$user->email}}"
                                     placeholder="Email" id="email-id-icon">
                                 <div class="form-control-icon">
                                     <i class="bi bi-envelope"></i>
@@ -51,7 +51,7 @@
                         <div class="form-group has-icon-left">
                             <label for="mobile-id-icon">Mobile</label>
                             <div class="position-relative">
-                                <input type="text" class="form-control" name="phone" value="{{old('phone')}}"
+                                <input type="text" class="form-control" name="phone" value="{{$user->phone}}"
                                     placeholder="Mobile" id="mobile-id-icon">
                                 <div class="form-control-icon">
                                     <i class="bi bi-phone"></i>
@@ -66,7 +66,7 @@
                         <div class="form-group has-icon-left">
                             <label for="password-id-icon">Password</label>
                             <div class="position-relative">
-                                <input type="" class="form-control" name="password" value="{{old('password')}}"
+                                <input type="" class="form-control" name="password" value="{{$user->password}}"
                                     placeholder="Password" id="password-id-icon">
                                 <div class="form-control-icon">
                                     <i class="bi bi-lock"></i>
@@ -82,7 +82,7 @@
                         <div class="form-group has-icon-left">
                             <label for="first-name-icon">Meslek</label>
                             <div class="position-relative">
-                                <input type="text" class="form-control" name="occupation" value="{{old('occupation')}}"
+                                <input type="text" class="form-control" name="occupation" value="{{$user->occupation}}"
                                     placeholder="Input with icon left"
                                     id="first-name-icon">
                                 <div class="form-control-icon">
@@ -98,7 +98,7 @@
                         <div class="form-group has-icon-left">
                             <label for="first-name-icon">Adres</label>
                             <div class="position-relative">
-                                <input type="text" class="form-control" name="address" value="{{old('address')}}"
+                                <input type="text" class="form-control" name="address" value="{{$user->address}}"
                                     placeholder="Input with icon left"
                                     id="first-name-icon">
                                 <div class="form-control-icon">
@@ -123,7 +123,7 @@
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                         <button type="submit"
-                            class="btn btn-primary me-1 mb-1">Oluştur</button>
+                            class="btn btn-primary me-1 mb-1">Güncelle</button>
                         <button type="reset"
                             class="btn btn-light-secondary me-1 mb-1">Reset</button>
                     </div>
