@@ -19,8 +19,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('/', 'Admin\AdminController');
-Route::resource('/quiz','Admin\QuizController');
-Route::resource('/question','Admin\QuestionController');
-Route::resource('/user','Admin\UserController');
+Route::group(['middleware'=>'isAdmin'], function() {
+
+    Route::resource('/', 'Admin\AdminController');
+    Route::resource('/quiz','Admin\QuizController');
+    Route::resource('/question','Admin\QuestionController');
+    Route::resource('/user','Admin\UserController');
+});
+
 
