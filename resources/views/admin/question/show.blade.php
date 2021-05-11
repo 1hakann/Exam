@@ -51,7 +51,7 @@
                               </button>
                             </div>
 
-                    <form action="{{route('question.destroy',$question->id)}}" method="POST">
+                    <form action="{{route('question.destroy',$question->id)}}" method=" POST">
                         @csrf
                         @method('DELETE')
                     <div class="modal-body">

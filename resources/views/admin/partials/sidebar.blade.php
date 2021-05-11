@@ -66,39 +66,17 @@
                     </ul>
                 </li>
 
-                <li class="sidebar-title">Forms &amp; Tables</li>
-
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-hexagon-fill"></i>
-                        <span>Form Elements</span>
+                <li class="sidebar-item">
+                    <a href="{{route('assign.exam')}}" class="sidebar-link">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <span>Sınav Ata</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="form-element-input.html">Input</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-input-group.html">Input Group</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-select.html">Select</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-radio.html">Radio</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-checkbox.html">Checkbox</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-textarea.html">Textarea</a>
-                        </li>
-                    </ul>
                 </li>
 
-                <li class="sidebar-item  ">
-                    <a href="form-layout.html" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-medical-fill"></i>
-                        <span>Form Layout</span>
+                <li class="sidebar-item">
+                    <a href="{{route('view.exam')}}" class="sidebar-link">
+                        <i class="bi bi-hexagon-fill"></i>
+                        <span>Kullanıcı Sınavlarını Görüntüle</span>
                     </a>
                 </li>
 

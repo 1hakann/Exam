@@ -99,4 +99,10 @@ class QuizController extends Controller
             'minutes' => 'required|integer'
         ]);
     }
+
+    public function question()
+    {
+        //
+    }
+
 }
