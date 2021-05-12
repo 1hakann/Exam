@@ -100,9 +100,10 @@ class QuizController extends Controller
         ]);
     }
 
-    public function question()
+    public function question($id)
     {
-        //
+        $quizzes = Quiz::with('questions')->where('id',$id)->get();
+        return view('admin.quiz.question',compact('quizzes'));
     }
 
 }

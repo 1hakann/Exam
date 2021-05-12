@@ -41,7 +41,9 @@
                                     <td>{{$quiz->name}}</td>
                                     <td>{{$quiz->description}}</td>
                                     <td>{{$quiz->minutes}}</td>
-                                    <td><a href="{{route('quiz.edit',$quiz->id)}}"><button style="float: left; margin-right:10px" class="btn btn-success">Düzenle</button></a>
+                                    <td>
+                                        <a href="{{route('quiz.edit',$quiz->id)}}"><button style="float: left; margin-right:10px" class="btn btn-success">Düzenle</button></a>
+                                        <a href="{{route('quiz.question',$quiz->id)}}"><button style="float: left; margin-right:10px" class="btn btn-primary">Göster</button></a>
                                       
                                             <a href="#"><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$quiz->id}}">Sil</button></a>
 
