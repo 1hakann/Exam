@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () { return view('welcome');});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+
+return view('dashboard');
 })->name('dashboard');
 
 Route::group(['middleware'=>'isAdmin'], function() {
@@ -36,4 +37,5 @@ Route::group(['middleware'=>'isAdmin'], function() {
 
 });
 
+Route::get('/home','Admin\HomeController@index');
 
