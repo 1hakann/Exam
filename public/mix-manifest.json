@@ -1,7 +1,4 @@
 {
-    "/js/app.js": "/js/app.js?id=55977694c50dee508c07",
-    "/css/app.css": "/css/app.css?id=a5b94b0ccd94f1f11407",
-    "/adminn/vendors/bootstrap-icons/bootstrap-icons.svg": "/adminn/vendors/bootstrap-icons/bootstrap-icons.svg?id=12e872fbbbb32b48c2b3",
-    "/adminn/js/maze-admin.js": "/adminn/js/maze-admin.js?id=6343f28dd608bb84d46b",
-    "/adminn/css/maze-admin.css": "/adminn/css/maze-admin.css?id=f63017cccaf0eb9d65a7"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css"
 }

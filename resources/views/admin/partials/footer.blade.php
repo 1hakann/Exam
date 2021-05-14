@@ -13,7 +13,7 @@
 </div>
 
 
-<script src="{{mix('adminn/js/maze-admin.js')}}"></script>
+<script src="{{asset('adminn/js/maze-admin.js')}}"></script>
 </body>
 
 </html>
