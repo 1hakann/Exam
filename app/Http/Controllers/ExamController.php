@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Quiz;
 use App\Models\Result;
 use App\Models\Question;
+use App\Models\User;
+use App\Models\Answer;
+use DB;
 
 class ExamController extends Controller
 {
@@ -46,11 +49,32 @@ class ExamController extends Controller
     public function getQuizQuestions(Request $request, $quizId)
     {
         $authUser = auth()->user()->id;
+        //check if user has been assigned a particular quiz
+        $userId = DB::table('quiz_users')->where('user_id',$authUser)->pluck('quiz_id')->toArray();
+        if(!in_array($quizId,$userId)) 
+        {
+            return redirect()->to('/home')->with('error','Bu sınava atanmadınız!');
+        }
+
         $quiz = Quiz::find($quizId);
         $time = Quiz::where('id',$quizId)->value('minutes');
-        $quizQuestions = Question::where('quiz_id',$quizId)->get();
+        $quizQuestions = Question::where('quiz_id',$quizId)->with('answers')->get();
         $authUserHasPlayedQuiz = Result::where(['user_id' => $authUser, 'quiz_id'=> $quizId])->get();
         return view('quiz',compact('quiz','time','quizQuestions','authUserHasPlayedQuiz'));        
+    }
+
+    public function  postQuiz(Request $request)
+    {
+        $questionId = $request['questionId'];
+        $answerId = $request['answerId'];
+        $quizId = $request['quizId'];
+
+        $authUser = auth()->user();
+
+        return $userQuestionAnswer = Result::updateOrCreate(
+            ['user_id' => $authUser->id, 'quiz_id' => $quizId, 'question_id'=>$questionId],
+            ['answer_id' => $answerId]
+        );
     }
 }
     
