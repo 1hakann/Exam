@@ -60,6 +60,13 @@ class ExamController extends Controller
         $time = Quiz::where('id',$quizId)->value('minutes');
         $quizQuestions = Question::where('quiz_id',$quizId)->with('answers')->get();
         $authUserHasPlayedQuiz = Result::where(['user_id' => $authUser, 'quiz_id'=> $quizId])->get();
+
+        //has user play particular quiz
+        $wasCompleted = Result::where('user_id',$authUser)->whereIn('quiz_id',(new Quiz)->hasQuizAttempted())->pluck('quiz_id')->toArray();
+
+        if(in_array($quizId,$wasCompleted)){
+            return redirect()->to('/home')->with('error','Bu Sınava Zaten Katıldınız!');
+        }
         return view('quiz',compact('quiz','time','quizQuestions','authUserHasPlayedQuiz'));        
     }
 

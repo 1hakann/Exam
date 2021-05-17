@@ -23,12 +23,14 @@ Auth::routes([
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('quiz/{quizId}','ExamController@getQuizQuestions')->middleware('auth');
+Route::post('quiz/create','ExamController@postQuiz')->middleware('auth');
 
 
 Route::group(['middleware' => 'isAdmin'], function() {
     Route::get('/', function() {
         return view('admin.index');
     });
+
     Route::resource('/quiz','Admin\QuizController');
     Route::resource('/question','Admin\QuestionController');
     Route::resource('/user','Admin\UserController');
@@ -43,8 +45,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 return view('dashboard');
 })->name('dashboard');
-
-
 
 
 //Route::get('quiz/{quizId}','ExamController@getQuizQuestions');

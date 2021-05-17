@@ -30,7 +30,7 @@
                    
                     <div v-show="questionIndex!=questions.length">
                         <button class="btn btn-success"@click="prev()">Önceki</button>
-                        <button class="btn btn-success float-right"@click="next()">Sonraki</button>
+                        <button class="btn btn-success float-right"@click="next(); postuserChoice()">Sonraki</button>
                     </div>
                     <div v-show="questionIndex===questions.length">
                         <p>
@@ -77,6 +77,18 @@
                 return this.userResponses.filter((val) => {
                     return val===true;
                 }).length
+            },
+            postuserChoice()
+            {
+                axios.post('/quiz/create', {
+                    answerId:this.currentAnswer,
+                    questionId:this.currentQuestion,
+                    quizId:this.quizid
+                }).then((response)=>{
+                    console.log(response)
+                }).catch((error)=>{
+                    alert("Error!")
+                });
             }
         }
     }
