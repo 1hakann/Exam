@@ -27,6 +27,7 @@
                                 <button class="btn btn-success">Sınava Başla</button>
                             </a>
                         @else
+                        <a href="/result/user/{{auth()->user()->id}}/quiz/{{$quiz->id}}"><button class="">Sonuçları Göster</button></a>
                         <span class="float-right">Tamamlandı</span>
                         @endif
     
