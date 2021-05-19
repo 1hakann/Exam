@@ -6,6 +6,12 @@
                     <div class="card-header">Çevrimiçi Sınav
                         <span class="float-right">{{questionIndex}}/{{questions.length}}</span>
                     </div>
+
+                    <div class="card-body">
+                        <span class="float-right" style="color:green;">
+                           {{time}}
+                        </span>
+                    </div>
                   
                     <div class="card-body">
                         <div v-for="(question, index) in questions">
@@ -29,7 +35,7 @@
                     </div>
                    
                     <div v-show="questionIndex!=questions.length">
-                        <button class="btn btn-success"@click="prev()">Önceki</button>
+                        <button v-if="questionIndex>0" class="btn btn-success"@click="prev()">Önceki</button>
                         <button class="btn btn-success float-right"@click="next(); postuserChoice()">Sonraki</button>
                     </div>
                     <div v-show="questionIndex===questions.length">
@@ -56,11 +62,25 @@
                 questionIndex:0,
                 userResponses:Array(this.quizQuestions.lenth).fill(false),
                 currentQuestion:0,
-                currentAnswer:0
+                currentAnswer:0,
+                clock:moment(this.times*60*1000)
+               
             }
         },
         mounted() {
-            console.log('Component mounted.')
+           setInterval(()=>{
+               this.clock=moment(this.clock.subtract(1,'seconds'))
+           },1000);
+        },
+        computed:{
+            time:function() {
+                var minsec = this.clock.format('mm:ss');
+                if(minsec == '00:00') {
+                    alert('Timeout!')
+                    window.location.reload();
+                }
+                return minsec
+            }
         },
         methods: {
             prev() {
