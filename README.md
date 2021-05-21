@@ -37,9 +37,10 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ## Views from the Application
 
-<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-07-51.png" type="image" alt="ExamApp-pic">
 
-<img src='https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-04-50.png' type='image' alt="ExamApp-pic></a>
+<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-04-50.png" type="image" alt="ExamApp-pic">
+
+<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-07-51.png" type="image" alt="ExamApp-pic">
 
 ## License
 
