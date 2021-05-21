@@ -7,19 +7,27 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About Exam App
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Exam App is a slightly more advanced and corporate version of the Quiz App application I wrote earlier. Specifically, course / course categories can be created on the management panel of the system. Quizzes can be created for these categories. Then, questions and answers are determined for these quizzes. (Note that all these include deletion and update and listing processes)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+In addition to all these, students or study groups who are members of the system are assigned to the courses and courses requested / determined by the administrators. Students can follow these assignments from their own profiles. They can solve quizzes to which they have been assigned.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Students / trainees are required to take the exams within the time specified by the administrators / instructors. There is a dynamically decreasing counter on the exam screen. In addition, the exam screen was prepared with a question on a single page. Students can use the previous and next buttons to skip the questions they have solved or to return to the previous question. The exam screen is closed to right click.
+
+The trainee who fails to complete the exam within the specified time will encounter a notification that the exam has ended with the end of the period and is recorded in the database along with the exam statistics.
+
+Exam results details are shown in detail on the administration panel. In addition, certain statistics are shared with the participant. In addition, general statistics (number of quizzes, number of students, number of questions, etc.) are shared on the dashboard. 
+
+## Using and Downloading App
+
+First of all, replace the env.example file with your database information.</br>
+Next copy your .env file to the project.</br>
+Then create a database called exam.</br>
+After Then run the php artisan migrate command.</br> 
+In DatabaseSeeder.php update your information.
+Finally, add your data to your tables with the php artisan migrate: fresh --seed command.</br>
+Now you can examine the project with peace of mind :)
 
 ## Learning Laravel
 
@@ -27,35 +35,11 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Views from the Application
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-07-51.png" type="image" alt="ExamApp-pic">
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<img src='https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-04-50.png' type='image' alt="ExamApp-pic></a>
 
 ## License
 
