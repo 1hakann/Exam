@@ -41,7 +41,8 @@ Route::group(['middleware' => 'isAdmin'], function() {
     Route::get('exam/user','ExamController@userExam')->name('view.exam');
     Route::post('exam/remove','ExamController@removeExam')->name('exam.remove');
     Route::get('result','ExamController@result')->name('result');
-    Route::get('result/{userId}/{quizId}','ExamController@userQuizResult');
+    Route::get('result
+    /{userId}/{quizId}','ExamController@userQuizResult');
 
 
 });

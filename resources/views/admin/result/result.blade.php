@@ -22,7 +22,7 @@
                         
                     </div>
                     <!-- table striped -->
-                    <div class="table-responsive">
+                    <div class="table-responsive pb-5">
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
@@ -47,6 +47,33 @@
                                     <td>{{$userWrongAns}}</td>
                                     <td>{{round($percentage,2)}}</td>
 
+                                </tr> 
+                                @endforeach     
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Soru</th>
+                                    <th>Verilen Cevap</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                @foreach ($results as $key => $result)                  
+                                <tr>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$result->question->question}}</td>
+                                    <td>{{$result->answer->answer}}</td>
+                                    @if ($result->answer->is_correct)
+                                    <td>Doğru</td>
+                                    @else
+                                    <td>Yanlış</td>
+                                    @endif
                                 </tr> 
                                 @endforeach     
                             

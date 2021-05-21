@@ -18,8 +18,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Profile Views</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                    <h6 class="text-muted font-semibold">Quiz Sayısı</h6>
+                                    <h6 class="font-extrabold mb-0">{{App\Models\Quiz::count()}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -35,8 +35,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                    <h6 class="text-muted font-semibold">Öğrenci Sayısı</h6>
+                                    <h6 class="font-extrabold mb-0">{{App\Models\User::where('is_admin',0)->count()}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -69,8 +69,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
+                                    <h6 class="text-muted font-semibold">Soru Sayısı</h6>
+                                    <h6 class="font-extrabold mb-0">{{App\Models\Question::count()}}</h6>
                                 </div>
                             </div>
                         </div>

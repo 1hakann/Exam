@@ -9,4 +9,10 @@
 >
     
 </quiz-component>
+<script type="text/javascript">
+    window.oncontextmenu = function() {
+        console.log("Sağ Tık Kapatıldı");
+        return false;
+    }
+</script>
 @endsection
