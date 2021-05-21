@@ -11,9 +11,13 @@
 
 Exam App is a slightly more advanced and corporate version of the Quiz App application I wrote earlier. Specifically, course / course categories can be created on the management panel of the system. Quizzes can be created for these categories. Then, questions and answers are determined for these quizzes. (Note that all these include deletion and update and listing processes)
 
+<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-04-50.png" type="image" alt="ExamApp-pic">
+
 In addition to all these, students or study groups who are members of the system are assigned to the courses and courses requested / determined by the administrators. Students can follow these assignments from their own profiles. They can solve quizzes to which they have been assigned.
 
 Students / trainees are required to take the exams within the time specified by the administrators / instructors. There is a dynamically decreasing counter on the exam screen. In addition, the exam screen was prepared with a question on a single page. Students can use the previous and next buttons to skip the questions they have solved or to return to the previous question. The exam screen is closed to right click.
+
+<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-07-51.png" type="image" alt="ExamApp-pic">
 
 The trainee who fails to complete the exam within the specified time will encounter a notification that the exam has ended with the end of the period and is recorded in the database along with the exam statistics.
 
@@ -34,13 +38,6 @@ Now you can examine the project with peace of mind :)
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Views from the Application
-
-
-<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-04-50.png" type="image" alt="ExamApp-pic">
-
-<img src="https://www.linkpicture.com/q/Screenshot-from-2021-05-21-14-07-51.png" type="image" alt="ExamApp-pic">
 
 ## License
 
